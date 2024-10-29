@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Fertilizer Optimizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 128, 0, 0.4); /* 40% green */
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hero-content {
+            z-index: 1;
+            animation: slideIn 1.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #28a745;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .card-img-top:hover {
+            transform: scale(1.05);
+        }
+        .fertilizer-card {
+            transition: transform 0.3s ease;
+        }
+        .fertilizer-card:hover {
+            transform: scale(1.03);
+        }
+        .bg-light-custom {
+            background-color: rgba(0, 128, 0, 0.1); /* 10% green */
+        }
+    </style>
+</head>
+<body>  
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Fertilizer Optimizer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Fertilizer Optimizer.html">Optimizer Tool</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Sustainability Tips.html">Sustainability Tips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="User Dashboard.html">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <video autoplay muted loop class="video-bg">
+            <source src="video/background video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container hero-content text-center text-sm-start">
+            <h1>Optimize Your Fertilizer Usage for <span class="text-success">Higher Yield</span></h1>
+            <p class="lead my-4">
+                Use our tool to optimize fertilizer application, ensuring sustainable farming and improved crop yield. Start today to make a positive impact on the environment and your harvest!
+            </p>
+            <a class="btn btn-success btn-lg" href="#">Get Started</a>
+        </div>
+    </section>
+    
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Our Fertilizers</h1>
+        <div class="row">
+            <!-- Fertilizer Card 1 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://mtseedbank.in/wp-content/uploads/2020/12/Epsom-salt-for-plant-Mtseedbank.jpg" class="card-img-top" alt="Epsom Salt">
+                    <div class="card-body">
+                        <h5 class="card-title">Epsom Salt</h5>
+                        <p class="card-text">Helps boost the blooming phase and fruit production. Contains magnesium and sulfur, which are both very beneficial to tomatoes and bell peppers, enhancing their growth and yield.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 2 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://organicgardenadvice.com/wp-content/uploads/fish-emulsion-benefits-uses-and-how-to-apply-it.webp" class="card-img-top" alt="Fish Emulsion">
+                    <div class="card-body">
+                        <h5 class="card-title">Fish Emulsion</h5>
+                        <p class="card-text">Provides a quick-release source of nutrients. This organic fertilizer is rich in nitrogen and is ideal for rapid plant growth and increased foliage.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 3 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://plantsheaven.com/wp-content/uploads/2022/06/How-To-Use-Coffee-Grounds-as-Fertilizer.jpg" class="card-img-top" alt="Coffee Ground Fertilizer">
+                    <div class="card-body">
+                        <h5 class="card-title">Coffee Ground Fertilizer</h5>
+                        <p class="card-text">Provides a slow-release source of nutrients. Coffee grounds add organic matter to the soil, improving its structure and providing a steady supply of nutrients.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 4 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://th.bing.com/th/id/OIP.6FgztGl3FQvbIizKAbz1pgHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="Manure">
+                    <div class="card-body">
+                        <h5 class="card-title">Manure</h5>
+                        <p class="card-text">Provides a slow-release source of nutrients. Manure enriches the soil with essential nutrients and organic matter, promoting healthy plant growth and improving soil fertility.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 5 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://th.bing.com/th/id/OIP.aqKTYTUGs22AcNU6dYILLQHaEK?rs=1&pid=ImgDetMain" class="card-img-top" alt="Grass Clippings Fertilizer">
+                    <div class="card-body">
+                        <h5 class="card-title">Grass Clippings Fertilizer</h5>
+                        <p class="card-text">Provides a slow-release source of nutrients. Grass clippings decompose quickly and add valuable nutrients to the soil, enhancing soil health and promoting plant growth.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 6 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://m.media-amazon.com/images/I/81n9DWgafoL._SL1500_.jpg" class="card-img-top" alt="Bone Meal">
+                    <div class="card-body">
+                        <h5 class="card-title">Bone Meal</h5>
+                        <p class="card-text">Rich in phosphorus, bone meal supports root development and enhances flowering. It’s excellent for plants requiring a boost in root and bloom growth.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 7 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81BGjWu2zBL._AC_SL1500_.jpg" class="card-img-top" alt="Blood Meal">
+                    <div class="card-body">
+                        <h5 class="card-title">Blood Meal</h5>
+                        <p class="card-text">High in nitrogen, blood meal promotes vigorous leaf growth. Ideal for leafy vegetables and plants needing a nitrogen boost for lush foliage.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 8 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://www.nature-and-garden.com/wp-content/uploads/sites/4/2020/01/compost-use.jpg" class="card-img-top" alt="Compost">
+                    <div class="card-body">
+                        <h5 class="card-title">Compost</h5>
+                        <p class="card-text">A balanced mix of organic matter, compost improves soil structure and provides a broad range of nutrients. It enhances soil fertility and supports sustainable plant growth.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 9 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://th.bing.com/th/id/OIP.czZCFfb8e1-rwxZRqPQQ_wHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="Kelp Meal">
+                    <div class="card-body">
+                        <h5 class="card-title">Kelp Meal</h5>
+                        <p class="card-text">Rich in micronutrients and growth hormones, kelp meal promotes healthy plant growth and stress resistance. It improves soil health and enhances nutrient uptake.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 10 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://th.bing.com/th/id/OIP.3_QTSmM37gnAD1fzKrVT1QHaEK?rs=1&pid=ImgDetMain" class="card-img-top" alt="Green Manure">
+                    <div class="card-body">
+                        <h5 class="card-title">Green Manure</h5>
+                        <p class="card-text">Planted cover crops that are tilled into the soil to add organic matter and nutrients. Green manure enhances soil fertility and structure, and helps in preventing soil erosion.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 11 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://image.made-in-china.com/2f0j00KBZGWlszfiqV/Organic-Agriculture-Water-Soluble-Seaweed-Kelp-Extract-Bio-Foliar-Powder-Fertilizer.jpg" class="card-img-top" alt="Seaweed Extract">
+                    <div class="card-body">
+                        <h5 class="card-title">Seaweed Extract</h5>
+                        <p class="card-text">A liquid fertilizer rich in trace minerals and growth hormones. Seaweed extract promotes root development, enhances plant immunity, and improves overall plant health.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 12 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://th.bing.com/th/id/OIP.dUcCnsxLqGx8wgYfE4-CwQHaE8?rs=1&pid=ImgDetMain" class="card-img-top" alt="Sulfur">
+                    <div class="card-body">
+                        <h5 class="card-title">Sulfur</h5>
+                        <p class="card-text">Essential for protein synthesis in plants, sulfur helps improve plant growth and development. It’s particularly useful in correcting sulfur deficiencies in the soil.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 13 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://img.freepik.com/premium-photo/pile-wood-ash-isolated-black-background_275805-1201.jpg" class="card-img-top" alt="Wood Ash">
+                    <div class="card-body">
+                        <h5 class="card-title">Wood Ash</h5>
+                        <p class="card-text">Contains potassium and calcium carbonate, which help improve soil pH and provide essential nutrients. Wood ash is beneficial for plants that thrive in alkaline soil conditions.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 14 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://www.thespruce.com/thmb/LR7bKlDob-OhmMPp1ZVJDgzxFcA=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-545582750-61ed3446a17140e48b9dabe3e5c6115c.jpg" class="card-img-top" alt="Chicken Manure">
+                    <div class="card-body">
+                        <h5 class="card-title">Chicken Manure</h5>
+                        <p class="card-text">A nutrient-rich organic fertilizer high in nitrogen, phosphorus, and potassium. Chicken manure improves soil fertility and promotes healthy, vigorous plant growth.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 15 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://th.bing.com/th/id/OIP.PRKzAAhg2qyULq3ouBWEtgHaE8?w=900&h=600&rs=1&pid=ImgDetMain" class="card-img-top" alt="Composted Leaves">
+                    <div class="card-body">
+                        <h5 class="card-title">Composted Leaves</h5>
+                        <p class="card-text">Decomposed leaves provide organic matter and essential nutrients. They enhance soil structure, increase moisture retention, and support overall plant health.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 16 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://th.bing.com/th/id/OIP.saWPhMFapP93ev7fNZrCbwHaE_?rs=1&pid=ImgDetMain" class="card-img-top" alt="Alfalfa Meal">
+                    <div class="card-body">
+                        <h5 class="card-title">Alfalfa Meal</h5>
+                        <p class="card-text">A natural fertilizer high in nitrogen and other essential nutrients. Alfalfa meal promotes strong plant growth, improves soil health, and enhances nutrient availability.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 17 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://th.bing.com/th/id/OIP.1IAJ7FRahP9etZkTsKa3GQAAAA?rs=1&pid=ImgDetMain" class="card-img-top" alt="Mushroom Compost">
+                    <div class="card-body">
+                        <h5 class="card-title">Mushroom Compost</h5>
+                        <p class="card-text">A rich source of organic matter and nutrients. Mushroom compost improves soil structure, increases fertility, and provides a slow-release source of essential nutrients.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fertilizer Card 18 -->
+            <div class="col-md-4">
+                <div class="card fertilizer-card">
+                    <img src="https://th.bing.com/th/id/OIP.LD7XfR8JcSZ_2eh2iHCqzQHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="Rock Phosphate">
+                    <div class="card-body">
+                        <h5 class="card-title">Rock Phosphate</h5>
+                        <p class="card-text">A natural source of phosphorus, rock phosphate supports root development and flowering. It is particularly useful in promoting strong root systems and overall plant vigor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="p-5 bg-light-custom">
+        <div class="container">
+            <h2 class="text-center mb-4">Testimonials</h2>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="card-text">"The fertilizer optimizer tool has revolutionized the way we approach our crops. The yield improvements have been remarkable!"</p>
+                            <footer class="blockquote-footer">Jane Doe, <cite title="Source Title">Farmer</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="card-text">"Incredible results with minimal effort. The sustainability tips have truly made a difference in our farming practices."</p>
+                            <footer class="blockquote-footer">John Smith, <cite title="Source Title">Agronomist</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <p class="card-text">"We’ve seen a noticeable increase in our crop yield and soil health thanks to the recommended fertilizers. Highly recommend!"</p>
+                            <footer class="blockquote-footer">Emily Johnson, <cite title="Source Title">Horticulturist</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 Sustainable Fertilizer Optimizer. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
