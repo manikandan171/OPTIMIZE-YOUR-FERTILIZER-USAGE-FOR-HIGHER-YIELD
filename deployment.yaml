@@ -14,9 +14,10 @@ spec:
     spec:
       containers:
       - name: fertilizer-optimizer
-        image: mani171/fertilizer-optimizer:latest
+        image: mani1711/fertilizer-optimizer:latest  # ✅ Corrected Image Name
         ports:
         - containerPort: 6700
+        imagePullPolicy: Always  # Ensures the latest image is pulled
 
 ---
 apiVersion: v1
