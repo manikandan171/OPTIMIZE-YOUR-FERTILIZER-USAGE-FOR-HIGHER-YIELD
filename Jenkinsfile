@@ -2,29 +2,22 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "mani1711/fertilizer-optimizer:latest"
-        CONTAINER_NAME = "fertilizer-optimizer-container"
-        DOCKER_USER = "mani1711"
-        DOCKER_PASS = "Rithvikmani123#"
-        GIT_BRANCH = "main"  // Change this to the correct branch
+        DOCKER_IMAGE = 'mani1711/fertilizer-optimizer:latest'
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Checkout Code') {
             steps {
-                script {
-                    checkout([$class: 'GitSCM', 
-                        branches: [[name: "*/${GIT_BRANCH}"]], 
-                        userRemoteConfigs: [[url: 'https://github.com/manikandan171/OPTIMIZE-YOUR-FERTILIZER-USAGE-FOR-HIGHER-YIELD.git']]
-                    ])
-                }
+                git url: 'https://github.com/manikandan171/OPTIMIZE-YOUR-FERTILIZER-USAGE-FOR-HIGHER-YIELD.git', branch: 'main'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t ${IMAGE_NAME} ."
+                    sh '''
+                    docker build -t $DOCKER_IMAGE .
+                    '''
                 }
             }
         }
@@ -32,9 +25,11 @@ pipeline {
         stage('Push Image to Docker Hub') {
             steps {
                 script {
-                    sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
-                    sh "docker push ${IMAGE_NAME}"
-                    sh "docker logout"
+                    sh '''
+                    docker login -u mani1711 -p Rithvikmani123#
+                    docker push $DOCKER_IMAGE
+                    docker logout
+                    '''
                 }
             }
         }
@@ -42,7 +37,15 @@ pipeline {
         stage('Deploy to Minikube') {
             steps {
                 script {
-                    sh "kubectl apply -f deployment.yaml"
+                    sh '''
+                    minikube start --driver=docker
+                    kubectl config set-cluster minikube --server=https://$(minikube ip):8443
+                    kubectl config set-context minikube --cluster=minikube --user=minikube
+                    kubectl config use-context minikube
+                    
+                    # Apply the Kubernetes deployment
+                    kubectl apply -f deployment.yaml --validate=false
+                    '''
                 }
             }
         }
@@ -50,9 +53,21 @@ pipeline {
         stage('Verify Deployment') {
             steps {
                 script {
-                    sh "kubectl get pods"
+                    sh '''
+                    kubectl get pods
+                    kubectl get services
+                    '''
                 }
             }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Build or Deployment Failed! Check logs for errors.'
+        }
+        success {
+            echo 'Deployment Successful!'
         }
     }
 }
