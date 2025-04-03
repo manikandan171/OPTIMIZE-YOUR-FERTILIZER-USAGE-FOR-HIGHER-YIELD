@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "manikandan171/fertilizer-optimizer"
+        IMAGE_NAME = "mani1711/fertilizer-optimizer:latest"
         CONTAINER_NAME = "fertilizer-optimizer-container"
-        MINIKUBE_CONTEXT = "minikube"
+        DOCKER_USER = "mani1711"
+        DOCKER_PASS = "Rithvikmani123#"
     }
 
     stages {
@@ -25,9 +26,9 @@ pipeline {
         stage('Push Image to Docker Hub') {
             steps {
                 script {
-                    withDockerRegistry([credentialsId: 'docker-hub-credentials', url: '']) {
-                        sh "docker push ${IMAGE_NAME}"
-                    }
+                    sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
+                    sh "docker push ${IMAGE_NAME}"
+                    sh "docker logout"
                 }
             }
         }
@@ -35,7 +36,6 @@ pipeline {
         stage('Deploy to Minikube') {
             steps {
                 script {
-                    sh "kubectl config use-context ${MINIKUBE_CONTEXT}"
                     sh "kubectl apply -f deployment.yaml"
                 }
             }
