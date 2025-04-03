@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: fertilizer-optimizer
-        image: manikandan171/fertilizer-optimizer:latest
+        image: mani171/fertilizer-optimizer:latest
         ports:
         - containerPort: 6700
 
