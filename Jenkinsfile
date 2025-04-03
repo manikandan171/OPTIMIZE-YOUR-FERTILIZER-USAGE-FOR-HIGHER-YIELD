@@ -6,12 +6,18 @@ pipeline {
         CONTAINER_NAME = "fertilizer-optimizer-container"
         DOCKER_USER = "mani1711"
         DOCKER_PASS = "Rithvikmani123#"
+        GIT_BRANCH = "main"  // Change this to the correct branch
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/manikandan171/OPTIMIZE-YOUR-FERTILIZER-USAGE-FOR-HIGHER-YIELD.git'
+                script {
+                    checkout([$class: 'GitSCM', 
+                        branches: [[name: "*/${GIT_BRANCH}"]], 
+                        userRemoteConfigs: [[url: 'https://github.com/manikandan171/OPTIMIZE-YOUR-FERTILIZER-USAGE-FOR-HIGHER-YIELD.git']]
+                    ])
+                }
             }
         }
 
