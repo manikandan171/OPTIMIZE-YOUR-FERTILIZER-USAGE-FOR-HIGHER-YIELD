@@ -1,5 +1,3 @@
-// server.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -12,13 +10,19 @@ const PORT = 5000;
 app.use(bodyParser.json());
 app.use(cors());
 
-// MongoDB URI
-const mongoURI = 'mongodb://localhost:27017/fertilizer_optimizer'; // Adjust the URI if necessary
+// MongoDB Atlas URI
+const mongoURI = "mongodb+srv://manikandans22msc:12345@cluster0.amrtggi.mongodb.net/fertilizer_optimizer?retryWrites=true&w=majority&appName=Cluster0";
 
-// Connect to MongoDB
-mongoose.connect(mongoURI)
-    .then(() => console.log('MongoDB connected successfully'))
-    .catch((err) => console.log('Error connecting to MongoDB:', err));
+// Connect to MongoDB Atlas
+mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(() => console.log('Connected to MongoDB Atlas'))
+    .catch((err) => {
+        console.error('Error connecting to MongoDB Atlas:', err);
+        process.exit(1);
+    });
 
 // Define the Contact schema
 const ContactSchema = new mongoose.Schema({
