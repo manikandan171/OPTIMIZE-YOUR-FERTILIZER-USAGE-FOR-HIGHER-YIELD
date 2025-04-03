@@ -1,21 +1,21 @@
 const http = require('http');
 const mongoose = require('mongoose');
 const url = require('url');
-const bodyParser = require('body-parser');
 require('dotenv').config();
 
-const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/fertilizer_optimizer';
+// MongoDB Atlas connection URI
+const mongoURI = "mongodb+srv://manikandans22msc:12345@cluster0.amrtggi.mongodb.net/fertilizer_optimizer?retryWrites=true&w=majority&appName=Cluster0";
 
-// Check for MongoDB URI
-if (!process.env.MONGO_URI) {
-    console.error('MONGO_URI environment variable not set.');
-    process.exit(1);
-}
-
-// Connect to MongoDB
-mongoose.connect(mongoURI)
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error('MongoDB connection error:', err));
+// Connect to MongoDB Atlas
+mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+    .then(() => console.log('Connected to MongoDB Atlas'))
+    .catch(err => {
+        console.error('MongoDB connection error:', err);
+        process.exit(1);
+    });
 
 // Define schema and model
 const formDataSchema = new mongoose.Schema({
@@ -63,7 +63,7 @@ const server = http.createServer(async (req, res) => {
         // End of data
         req.on('end', async () => {
             try {
-                const data = JSON.parse(body); // Parse JSON data
+                const data = JSON.parse(body);
 
                 // Validate required fields
                 const { cropType, soilType, climateConditions, currentNutrientLevel, fieldSize, fertilizerType } = data;
