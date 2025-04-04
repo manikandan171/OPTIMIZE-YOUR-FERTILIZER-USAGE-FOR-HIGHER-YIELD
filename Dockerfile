@@ -1,26 +1,7 @@
-# Stage 1: Build React App
-FROM node:18 as builder
-
-WORKDIR /app
-
-# Copy only the frontend code
-COPY fertilizer-optimizer/package.json fertilizer-optimizer/package-lock.json ./
-RUN npm install
-
-COPY fertilizer-optimizer/ ./
-RUN npm run build
-
-# Stage 2: Serve using Nginx
 FROM nginx:latest
-
-# Remove default Nginx static files
-RUN rm -rf /usr/share/nginx/html/*
-
-# Copy built React files from previous stage
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Expose port 80
+# Copy the built files from the previous stage
+COPY build/ /usr/share/nginx/html
+# Expose port 80 (the default HTTP port)
 EXPOSE 80
-
-# Start Nginx
+# Start Nginx and keep it running in the foreground
 CMD ["nginx", "-g", "daemon off;"]
