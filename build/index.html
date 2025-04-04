@@ -1,1 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Optimizer - Comprehensive Solution</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Navigation Styles */
+        .navbar {
+            background-color: #28a745;
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        
+        .nav-link:hover {
+            color: #e0e0e0 !important;
+        }
+        
+        /* Hero Section Styles */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 128, 0, 0.4);
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .hero-content {
+            z-index: 1;
+            animation: slideIn 1.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        /* Fertilizer Tool Styles */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: floatEffect 4s ease-in-out infinite;
+        }
+        
+        @keyframes floatEffect {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        input:focus, select:focus {
+            border-color: #43a047;
+            box-shadow: 0px 0px 10px rgba(67, 160, 71, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-success {
+            background-color: #43a047;
+            border-color: #43a047;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-success:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+        
+        /* Fertilizer Cards Styles */
+        .fertilizer-card {
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .fertilizer-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        /* Contact Form Styles */
+        .contact-section {
+            padding: 60px 0;
+            background-color: #28a745; 
+            color: #fff;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.5); 
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Sustainability Tips Styles */
+        .sustainability-section {
+            padding: 50px 0;
+            background-color: #43a047;
+            color: #fff;
+        }
+        
+        .tip-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tip-icon {
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        
+        /* Dashboard Styles */
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: #343a40;
+            padding-top: 20px;
+            width: 250px;
+        }
+        
+        .sidebar a {
+            color: #fff;
+            padding: 15px;
+            text-align: left;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        /* Testimonials */
+        .testimonial-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Background Gradient with Animation */
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.8), rgba(38, 166, 154, 0.8));
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Additional Styles for Spacing and Layout */
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .bg-light-custom {
+            background-color: rgba(0, 128, 0, 0.1);
+        }
+        
+        .why-sustainability {
+            padding: 50px 0;
+            background-color: #e8f5e9;
+            color: #333;
+        }
+        
+        .cta-section {
+            padding: 50px 0;
+            background-color: #388e3c;
+            color: #fff;
+            text-align: center;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .hero-section {
+                height: auto;
+                padding: 100px 0;
+            }
+        }
+        
+        /* Animation for Form Elements */
+        .form-group {
+            transition: all 0.3s ease;
+        }
+        
+        .form-group:hover {
+            transform: translateX(5px);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        /* Custom Button Styles */
+        .btn-custom {
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+        
+        .btn-custom:hover {
+            background-color: #218838;
+            color: #fff;
+        }
+        
+        /* Card Title Styles */
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Text Shadow for Headings */
+        h1, h2, h3, h4, h5, h6 {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Custom Background for Sections */
+        .bg-custom-section {
+            background-color: rgba(40, 167, 69, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Fertilizer Optimizer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#optimizer">Optimizer Tool</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fertilizers">Fertilizers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sustainability">Sustainability Tips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dashboard">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Home/Hero Section -->
+    <section id="home" class="hero-section">
+        <video autoplay muted loop class="video-bg">
+            <source src="video/background video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container hero-content text-center text-sm-start">
+            <h1>Optimize Your Fertilizer Usage for <span class="text-success">Higher Yield</span></h1>
+            <p class="lead my-4">
+                Use our tool to optimize fertilizer application, ensuring sustainable farming and improved crop yield. Start today to make a positive impact on the environment and your harvest!
+            </p>
+            <div class="d-flex justify-content-center justify-content-sm-start">
+                <a class="btn btn-success btn-lg me-2" href="#optimizer">Get Started</a>
+                <a class="btn btn-outline-light btn-lg" href="#contact">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fertilizer Optimizer Tool Section -->
+    <section id="optimizer" class="gradient-bg section-padding">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="text-center mb-4">Fertilizer Optimizer Tool</h2>
+                <form id="fertilizerForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="cropType" class="form-label">Crop Type</label>
+                            <select class="form-select" name="cropType" id="cropType" required>
+                                <option selected disabled>Select your crop</option>
+                                <option value="wheat">Wheat</option>
+                                <option value="corn">Corn</option>
+                                <option value="rice">Rice</option>
+                                <option value="soybean">Soybean</option>
+                                <option value="barley">Barley</option>
+                                <option value="potato">Potato</option>
+                                <option value="tomato">Tomato</option>
+                                <option value="cotton">Cotton</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="soilType" class="form-label">Soil Type</label>
+                            <select class="form-select" name="soilType" id="soilType" required>
+                                <option selected disabled>Select your soil type</option>
+                                <option value="sandy">Sandy</option>
+                                <option value="clay">Clay</option>
+                                <option value="loamy">Loamy</option>
+                                <option value="silty">Silty</option>
+                                <option value="peaty">Peaty</option>
+                                <option value="chalky">Chalky</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="climateConditions" class="form-label">Climate Conditions</label>
+                            <select class="form-select" id="climateConditions" name="climateConditions" required>
+                                <option selected disabled>Select climate conditions</option>
+                                <option value="dry">Dry</option>
+                                <option value="humid">Humid</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="wet">Wet</option>
+                                <option value="tropical">Tropical</option>
+                                <option value="arid">Arid</option>
+                                <option value="temperate">Temperate</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="currentNutrientLevel" class="form-label">Current Nutrient Levels</label>
+                            <input type="number" class="form-control" id="currentNutrientLevel" name="currentNutrientLevel" placeholder="Nutrient Level (0-100)" min="0" max="100" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="fieldSize" class="form-label">Field Size (in acres)</label>
+                            <input type="number" class="form-control" id="fieldSize" name="fieldSize" placeholder="Enter field size" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="fertilizerType" class="form-label">Preferred Fertilizer Type</label>
+                            <select class="form-select" id="fertilizerType" name="fertilizerType" required>
+                                <option selected disabled>Select fertilizer type</option>
+                                <option value="organic">Organic</option>
+                                <option value="inorganic">Inorganic</option>
+                                <option value="mixed">Mixed</option>
+                                <option value="slow-release">Slow Release</option>
+                                <option value="liquid">Liquid</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="previousYield" class="form-label">Previous Yield (kg/acre)</label>
+                            <input type="number" class="form-control" id="previousYield" name="previousYield" placeholder="Enter previous yield">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="targetYield" class="form-label">Target Yield (kg/acre)</label>
+                            <input type="number" class="form-control" id="targetYield" name="targetYield" placeholder="Enter target yield">
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success btn-lg">Calculate Optimal Fertilizer Usage</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fertilizers Section -->
+    <section id="fertilizers" class="section-padding bg-light-custom">
+        <div class="container">
+            <h1 class="text-center mb-5">Our Fertilizers</h1>
+            <div class="row">
+                <!-- Fertilizer Card 1 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://mtseedbank.in/wp-content/uploads/2020/12/Epsom-salt-for-plant-Mtseedbank.jpg" class="card-img-top" alt="Epsom Salt">
+                        <div class="card-body">
+                            <h5 class="card-title">Epsom Salt</h5>
+                            <p class="card-text">Helps boost the blooming phase and fruit production. Contains magnesium and sulfur, which are both very beneficial to tomatoes and bell peppers, enhancing their growth and yield.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 2 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://organicgardenadvice.com/wp-content/uploads/fish-emulsion-benefits-uses-and-how-to-apply-it.webp" class="card-img-top" alt="Fish Emulsion">
+                        <div class="card-body">
+                            <h5 class="card-title">Fish Emulsion</h5>
+                            <p class="card-text">Provides a quick-release source of nutrients. This organic fertilizer is rich in nitrogen and is ideal for rapid plant growth and increased foliage.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 3 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://plantsheaven.com/wp-content/uploads/2022/06/How-To-Use-Coffee-Grounds-as-Fertilizer.jpg" class="card-img-top" alt="Coffee Ground Fertilizer">
+                        <div class="card-body">
+                            <h5 class="card-title">Coffee Ground Fertilizer</h5>
+                            <p class="card-text">Provides a slow-release source of nutrients. Coffee grounds add organic matter to the soil, improving its structure and providing a steady supply of nutrients.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 4 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://th.bing.com/th/id/OIP.6FgztGl3FQvbIizKAbz1pgHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="Manure">
+                        <div class="card-body">
+                            <h5 class="card-title">Manure</h5>
+                            <p class="card-text">Provides a slow-release source of nutrients. Manure enriches the soil with essential nutrients and organic matter, promoting healthy plant growth and improving soil fertility.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 5 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://th.bing.com/th/id/OIP.aqKTYTUGs22AcNU6dYILLQHaEK?rs=1&pid=ImgDetMain" class="card-img-top" alt="Grass Clippings Fertilizer">
+                        <div class="card-body">
+                            <h5 class="card-title">Grass Clippings Fertilizer</h5>
+                            <p class="card-text">Provides a slow-release source of nutrients. Grass clippings decompose quickly and add valuable nutrients to the soil, enhancing soil health and promoting plant growth.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 6 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://m.media-amazon.com/images/I/81n9DWgafoL._SL1500_.jpg" class="card-img-top" alt="Bone Meal">
+                        <div class="card-body">
+                            <h5 class="card-title">Bone Meal</h5>
+                            <p class="card-text">Rich in phosphorus, bone meal supports root development and enhances flowering. It's excellent for plants requiring a boost in root and bloom growth.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 7 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/81BGjWu2zBL._AC_SL1500_.jpg" class="card-img-top" alt="Blood Meal">
+                        <div class="card-body">
+                            <h5 class="card-title">Blood Meal</h5>
+                            <p class="card-text">High in nitrogen, blood meal promotes vigorous leaf growth. Ideal for leafy vegetables and plants needing a nitrogen boost for lush foliage.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 8 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://www.nature-and-garden.com/wp-content/uploads/sites/4/2020/01/compost-use.jpg" class="card-img-top" alt="Compost">
+                        <div class="card-body">
+                            <h5 class="card-title">Compost</h5>
+                            <p class="card-text">A balanced mix of organic matter, compost improves soil structure and provides a broad range of nutrients. It enhances soil fertility and supports sustainable plant growth.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 9 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://th.bing.com/th/id/OIP.czZCFfb8e1-rwxZRqPQQ_wHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="Kelp Meal">
+                        <div class="card-body">
+                            <h5 class="card-title">Kelp Meal</h5>
+                            <p class="card-text">Rich in micronutrients and growth hormones, kelp meal promotes healthy plant growth and stress resistance. It improves soil health and enhances nutrient uptake.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 10 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://th.bing.com/th/id/OIP.3_QTSmM37gnAD1fzKrVT1QHaEK?rs=1&pid=ImgDetMain" class="card-img-top" alt="Green Manure">
+                        <div class="card-body">
+                            <h5 class="card-title">Green Manure</h5>
+                            <p class="card-text">Planted cover crops that are tilled into the soil to add organic matter and nutrients. Green manure enhances soil fertility and structure, and helps in preventing soil erosion.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 11 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://image.made-in-china.com/2f0j00KBZGWlszfiqV/Organic-Agriculture-Water-Soluble-Seaweed-Kelp-Extract-Bio-Foliar-Powder-Fertilizer.jpg" class="card-img-top" alt="Seaweed Extract">
+                        <div class="card-body">
+                            <h5 class="card-title">Seaweed Extract</h5>
+                            <p class="card-text">A liquid fertilizer rich in trace minerals and growth hormones. Seaweed extract promotes root development, enhances plant immunity, and improves overall plant health.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 12 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://th.bing.com/th/id/OIP.dUcCnsxLqGx8wgYfE4-CwQHaE8?rs=1&pid=ImgDetMain" class="card-img-top" alt="Sulfur">
+                        <div class="card-body">
+                            <h5 class="card-title">Sulfur</h5>
+                            <p class="card-text">Essential for protein synthesis in plants, sulfur helps improve plant growth and development. It's particularly useful in correcting sulfur deficiencies in the soil.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 13 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://img.freepik.com/premium-photo/pile-wood-ash-isolated-black-background_275805-1201.jpg" class="card-img-top" alt="Wood Ash">
+                        <div class="card-body">
+                            <h5 class="card-title">Wood Ash</h5>
+                            <p class="card-text">Contains potassium and calcium carbonate, which help improve soil pH and provide essential nutrients. Wood ash is beneficial for plants that thrive in alkaline soil conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 14 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://www.thespruce.com/thmb/LR7bKlDob-OhmMPp1ZVJDgzxFcA=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-545582750-61ed3446a17140e48b9dabe3e5c6115c.jpg" class="card-img-top" alt="Chicken Manure">
+                        <div class="card-body">
+                            <h5 class="card-title">Chicken Manure</h5>
+                            <p class="card-text">A nutrient-rich organic fertilizer high in nitrogen, phosphorus, and potassium. Chicken manure improves soil fertility and promotes healthy, vigorous plant growth.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 15 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://th.bing.com/th/id/OIP.PRKzAAhg2qyULq3ouBWEtgHaE8?w=900&h=600&rs=1&pid=ImgDetMain" class="card-img-top" alt="Composted Leaves">
+                        <div class="card-body">
+                            <h5 class="card-title">Composted Leaves</h5>
+                            <p class="card-text">Decomposed leaves provide organic matter and essential nutrients. They enhance soil structure, increase moisture retention, and support overall plant health.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fertilizer Card 16 -->
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card fertilizer-card h-100">
+                        <img src="https://th.bing.com/th/id/OIP.saWPhMFapP93ev7fNZrCbwHaE_?rs=1&pid=ImgDetMain" class="card-img-top" alt="Alfalfa Meal">
+                        <div class="card-body">
+                            <h5 class="card-title">Alfalfa Meal</h5>
+                            <p class="card-text">A natural fertilizer high in nitrogen and other essential nutrients. Alfalfa meal promotes strong plant growth, improves soil health, and enhances nutrient availability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Tips Section -->
+    <section id="sustainability" class="sustainability-section section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5">Sustainability Tips</h2>
+            <div class="row">
+                <!-- Tip 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="tip-card text-center p-4 h-100">
+                        <div class="tip-icon">
+                            🌱
+                        </div>
+                        <div class="tip-text">
+                            <h5>Use Organic Fertilizers</h5>
+                            <p>Opt for organic fertilizers to reduce chemical input in your soil and promote healthier plant growth.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tip 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="tip-card text-center p-4 h-100">
+                        <div class="tip-icon">
+                            💧
+                        </div>
+                        <div class="tip-text">
+                            <h5>Conserve Water</h5>
+                            <p>Implement water-efficient irrigation techniques like drip irrigation to minimize water waste and increase yields.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tip 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="tip-card text-center p-4 h-100">
+                        <div class="tip-icon">
+                            ♻️
+                        </div>
+                        <div class="tip-text">
+                            <h5>Recycle Plant Waste</h5>
+                            <p>Recycle plant waste into compost to return essential nutrients to the soil, reducing the need for synthetic fertilizers.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tip 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="tip-card text-center p-4 h-100">
+                        <div class="tip-icon">
+                            🌍
+                        </div>
+                        <div class="tip-text">
+                            <h5>Reduce Carbon Footprint</h5>
+                            <p>Use renewable energy sources and reduce the use of machinery that consumes fossil fuels to minimize emissions.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tip 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="tip-card text-center p-4 h-100">
+                        <div class="tip-icon">
+                            🌾
+                        </div>
+                        <div class="tip-text">
+                            <h5>Practice Crop Rotation</h5>
+                            <p>Rotate crops to improve soil health and fertility, while reducing the need for fertilizers and pesticides.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tip 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="tip-card text-center p-4 h-100">
+                        <div class="tip-icon">
+                            🌳
+                        </div>
+                        <div class="tip-text">
+                            <h5>Plant Trees</h5>
+                            <p>Planting trees around fields can act as windbreaks and help to prevent soil erosion, while promoting biodiversity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Sustainability Matters Section -->
+    <section class="why-sustainability">
+        <div class="container">
+            <h2 class="text-center mb-4">Why Sustainability Matters</h2>
+            <p class="text-center fs-5 mb-5">
+                Adopting sustainable practices helps ensure food security, promotes biodiversity, and preserves the environment for future generations.
+            </p>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="bg-custom-section h-100 p-4">
+                        <h5>Environmental Protection</h5>
+                        <p>Minimizing pollution and preserving natural ecosystems is crucial for maintaining the balance of the planet. Sustainable farming reduces chemical runoff into water sources and helps maintain biodiversity.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="bg-custom-section h-100 p-4">
+                        <h5>Economic Efficiency</h5>
+                        <p>Sustainability practices reduce the cost of inputs, helping farmers achieve better long-term profitability. Efficient use of resources leads to higher yields with lower expenses.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="bg-custom-section h-100 p-4">
+                        <h5>Healthier Communities</h5>
+                        <p>By reducing the use of harmful chemicals, sustainable farming practices improve the health of people and animals. Cleaner food and environment lead to better overall community health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="p-5 bg-light-custom">
+        <div class="container">
+            <h2 class="text-center mb-5">What Farmers Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card testimonial-card mb-4 h-100">
+                        <div class="card-body">
+                            <p class="card-text">"The fertilizer optimizer tool has revolutionized the way we approach our crops. The yield improvements have been remarkable! We've seen a 30% increase in productivity while using 20% less fertilizer."</p>
+                            <footer class="blockquote-footer mt-3">Jane Doe, <cite title="Source Title">Organic Farmer</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card mb-4 h-100">
+                        <div class="card-body">
+                            <p class="card-text">"Incredible results with minimal effort. The sustainability tips have truly made a difference in our farming practices. Our soil health has improved dramatically in just two seasons."</p>
+                            <footer class="blockquote-footer mt-3">John Smith, <cite title="Source Title">Agronomist</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card mb-4 h-100">
+                        <div class="card-body">
+                            <p class="card-text">"We've seen a noticeable increase in our crop yield and soil health thanks to the recommended fertilizers. Highly recommend! The detailed analysis helped us optimize our fertilizer mix perfectly."</p>
+                            <footer class="blockquote-footer mt-3">Emily Johnson, <cite title="Source Title">Horticulturist</cite></footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <h1 class="text-center mb-5">Contact Us</h1>
+            <p class="text-center mb-5">If you have any questions or need further assistance, please fill out the form below or reach out to us via the contact details provided.</p>
+            
+            <div class="row contact-info mb-5">
+                <div class="col-md-4 text-center mb-4">
+                    <h3>Our Address</h3>
+                    <p>123 Fertilizer Lane<br>Green City, GC 45678</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <h3>Phone</h3>
+                    <p>+1 (987) 654-3210</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@fertilizeroptimizer.com" class="text-white">info@fertilizeroptimizer.com</a></p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="email">Email address</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="subject">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section (Hidden by default, shown when logged in) -->
+    <section id="dashboard" class="d-none">
+        <div class="sidebar">
+            <a href="#dashboard-home"><i class="bi bi-speedometer2"></i> Dashboard</a>
+            <a href="#profile"><i class="bi bi-person-circle"></i> Profile</a>
+            <a href="#settings"><i class="bi bi-gear"></i> Settings</a>
+            <a href="#messages"><i class="bi bi-chat-left-dots"></i> Messages</a>
+            <a href="#logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </div>
+
+        <div class="main-content">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+            </nav>
+
+            <div class="container mt-4">
+                <h2>Welcome, Farmer!</h2>
+                <p>This is your personalized dashboard for managing your fertilizer optimization.</p>
+
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="card text-white bg-primary mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Field Statistics</h5>
+                                <p class="card-text">View your current field statistics and analytics here.</p>
+                                <a href="#field-stats" class="text-white">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-white bg-success mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Optimization Reports</h5>
+                                <p class="card-text">Access your fertilizer optimization reports and recommendations.</p>
+                                <a href="#reports" class="text-white">View Reports</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-white bg-info mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Messages</h5>
+                                <p class="card-text">Check your recent messages and notifications here.</p>
+                                <a href="#messages" class="text-white">View Messages</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-header bg-warning text-dark">Recent Activity</div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Completed soil test analysis for Field A</li>
+                                    <li class="list-group-item">Received new fertilizer recommendation</li>
+                                    <li class="list-group-item">Updated your crop rotation schedule</li>
+                                    <li class="list-group-item">Saved 15% on fertilizer costs this month</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-header bg-secondary text-white">Upcoming Tasks</div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Schedule next soil test for Field B</li>
+                                    <li class="list-group-item">Review fertilizer application for next season</li>
+                                    <li class="list-group-item">Attend sustainable farming webinar on Friday</li>
+                                    <li class="list-group-item">Submit quarterly yield report</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header bg-success text-white">Fertilizer Optimization History</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Field</th>
+                                        <th>Crop</th>
+                                        <th>Fertilizer Used</th>
+                                        <th>Yield Increase</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2023-10-15</td>
+                                        <td>Field A</td>
+                                        <td>Corn</td>
+                                        <td>Organic Mix</td>
+                                        <td>18%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-07-22</td>
+                                        <td>Field B</td>
+                                        <td>Soybean</td>
+                                        <td>Fish Emulsion</td>
+                                        <td>12%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-04-10</td>
+                                        <td>Field C</td>
+                                        <td>Wheat</td>
+                                        <td>Compost Tea</td>
+                                        <td>15%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2023-01-05</td>
+                                        <td>Field A</td>
+                                        <td>Barley</td>
+                                        <td>Kelp Meal</td>
+                                        <td>10%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <h3 class="mb-4">Ready to Optimize Your Fertilizer Usage?</h3>
+            <p class="mb-4 fs-5">Join thousands of farmers who are increasing their yields while reducing costs and environmental impact.</p>
+            <a href="#optimizer" class="btn btn-light btn-lg px-5 py-3 fs-5">Start Optimizing Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Fertilizer Optimizer</h5>
+                    <p>Helping farmers achieve optimal yields through sustainable fertilizer practices since 2010.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Home</a></li>
+                        <li><a href="#optimizer" class="text-white">Optimizer Tool</a></li>
+                        <li><a href="#fertilizers" class="text-white">Fertilizers</a></li>
+                        <li><a href="#sustainability" class="text-white">Sustainability</a></li>
+                        <li><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Blog</a></li>
+                        <li><a href="#" class="text-white">FAQs</a></li>
+                        <li><a href="#" class="text-white">Research Papers</a></li>
+                        <li><a href="#" class="text-white">Case Studies</a></li>
+                        <li><a href="#" class="text-white">Webinars</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Contact Info</h5>
+                    <address>
+                        <p><i class="bi bi-geo-alt-fill me-2"></i> 123 Fertilizer Lane, Green City, GC 45678</p>
+                        <p><i class="bi bi-telephone-fill me-2"></i> +1 (987) 654-3210</p>
+                        <p><i class="bi bi-envelope-fill me-2"></i> info@fertilizeroptimizer.com</p>
+                    </address>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2024 Fertilizer Optimizer. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p><a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Handle form submissions
+        document.getElementById('fertilizerForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Calculating...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            try {
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData.entries());
+                
+                // In a real app, you would send this data to your backend
+                console.log('Form data to be submitted:', data);
+                
+                // Simulate network delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Show success message
+                alert('Optimal fertilizer usage calculated successfully! Check your dashboard for recommendations.');
+                
+                // Show the dashboard section (simulating login)
+                document.getElementById('dashboard').classList.remove('d-none');
+                
+                // Scroll to dashboard
+                document.getElementById('dashboard').scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Reset form
+                this.reset();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error calculating optimal fertilizer usage. Please try again.');
+            } finally {
+                // Restore button state
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        document.getElementById('contactForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            try {
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData.entries());
+                
+                // In a real app, you would send this data to your backend
+                console.log('Contact form data to be submitted:', data);
+                
+                // Simulate network delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Show success message
+                alert('Message sent successfully! We will get back to you soon.');
+                
+                // Reset form
+                this.reset();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error sending message. Please try again.');
+            } finally {
+                // Restore button state
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        // Dashboard functionality
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#logout') {
+                    e.preventDefault();
+                    if (confirm('Are you sure you want to log out?')) {
+                        // Hide the dashboard section (simulating logout)
+                        document.getElementById('dashboard').classList.add('d-none');
+                        // Scroll to top
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
